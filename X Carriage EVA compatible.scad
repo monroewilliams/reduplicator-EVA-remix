@@ -1,3 +1,6 @@
+
+upward_shift = 10;
+
 module reduplicator_backplate()
 {
     rotate([-90, 0, 0])
@@ -63,17 +66,20 @@ module belt_section()
 module upper_hole_plug()
 {
     // top piece for support
-    hull()
-    {
-        translate([-11, 17, 21])
-        cube([22, 27.15 - 17, 7.5]);        
+//    hull()
+//    {
+//        translate([-11, 17, 21])
+//        cube([22, 27.15 - 17, 7.5]);        
+//    
+//        translate([-22, 27, 21])
+//        cube([44, 27.15 - 27, 7.5]);        
+//    }
     
-        translate([-22, 27, 21])
-        cube([44, 27.15 - 27, 7.5]);        
-    }
-    
+//    translate([-6.25, 0, 9])
+//    cube([11.5, 27.15, 12]);        
+
     translate([-6.25, 0, 9])
-    cube([11.5, 27.15, 12]);        
+    cube([11.5, 27.15, 9.5]);        
 
     // middle piece that plugs the old holes
     difference()
@@ -84,12 +90,12 @@ module upper_hole_plug()
         translate([-10.5, 0, 9])
         cube([20, 28, 12]);        
     }
-    
+        
     difference()
     {
         // bottom piece for support
-        translate([-17.5, 15, 2])
-        cube([35, 27.15 - 15, 7]);        
+        translate([-17.5, 15, 5])
+        cube([35, 27.15 - 15, 3]);        
         
         // relief holes for bottom adjuster
         
@@ -157,30 +163,48 @@ union()
 {
     // The original ReDuplicator backplate, with some cuts
     difference()
-    {
+    {   
         union()
         {
-            reduplicator_backplate();
-            upper_hole_plug();
+            translate([0, 0, upward_shift])
+            difference()
+            {
+                union()
+                {
+                    reduplicator_backplate();
+                    upper_hole_plug();
+                }
+                
+                translate([-50, 27.15, -75])
+                cube([100, 100, 100]);
+            }
+            
+            // A bit of support for the upper mounting holes
+            {
+                $fa=4;
+                $fs=0.1;
+                translate([17.05, 0, 23.5])
+                rotate([-90, 0, 0])
+                cylinder(h=27.15, d=7);
+                translate([-17.05, 0, 23.5])
+                rotate([-90, 0, 0])
+                cylinder(h=27.15, d=7);
+            }
+            
         }
-        
-        translate([-50, 27.15, -75])
-        cube([100, 100, 100]);
-
         bottom_cutout();
         eva_mount();
     }
-
-    difference()
+    
+    // EVA pieces for test-fit
+    if(0)
     {
         // The mount for the fan duct on bottom_mgn12_aero is recessed 18mm from the front face.
         // The entire bottom_mgn12 piece is 27.15mm front to back.
         translate([0, 27.15, 0])
         eva_cartesian_backplate();
+        aero_face();
     }
-
-        
-    aero_face();
     
     if(0)
     difference()
