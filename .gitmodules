@@ -1,0 +1,6 @@
+[submodule "eva-main"]
+	path = eva-main
+	url = https://github.com/EVA-3D/eva-main.git
+[submodule "ReDuplicator-MK3x"]
+	path = ReDuplicator-MK3x
+	url = https://github.com/OmNomNomagon/ReDuplicator-MK3x.git
