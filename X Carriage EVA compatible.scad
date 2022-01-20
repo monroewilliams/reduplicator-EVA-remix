@@ -12,13 +12,13 @@ module reduplicator_backplate()
 module eva_cartesian_backplate()
 {
     color("blue")
-    import("eva-main/stls/back_cartesian.stl", convexity=6);
+    import("eva-main-2.3.0/stls/back_cartesian.stl", convexity=6);
 }
 
 module aero_face()
 {
     color("blue")
-    import("eva-main/stls/aero_face.stl", convexity=6);
+    import("eva-main-2.3.0/stls/aero_face.stl", convexity=6);
 }
 
 module lm8_cutout()
