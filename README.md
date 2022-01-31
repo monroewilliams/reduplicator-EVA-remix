@@ -22,4 +22,4 @@ I did have to move the attachment points about 10mm lower than I'd like, to avoi
 
 Looking at the differences between the EVA 2.3 and 2.4 standards, it appears that the main change that's relevant to this remix is the width of the parts cooling duct attachment. 
 
-Since I'd like to try out the 2.4 TriHorn ducts as well, I've also created a remix of bottom_mgn12_short_duct.stl that has the proper offset for the Aero drive. This should allow me to use the 2.4 back and ducts with the Aero drive (assuming they fit otherwise).
+Since I'd like to try out the 2.4 TriHorn ducts as well, I've also created a remix of bottom_mgn12_short_duct.stl that has the proper offset for the Aero drive. This allows me to use the 2.4 back and ducts with the Aero drive.
